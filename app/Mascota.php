@@ -23,7 +23,8 @@ class Mascota extends Model
     	'edad',
     	'peso',
     	'genero',
-    	'id_propietario'
+    	'id_propietario',
+        'id_raza'
     ];
 
     public function especie()
