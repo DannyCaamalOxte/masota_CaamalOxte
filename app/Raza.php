@@ -9,7 +9,7 @@ class Raza extends Model
     //
     protected $table='razas';
     protected $primaryKey='id_raza';
-    public $with=['mascotas'];
+    //public $with=['mascotas'];
 
 
     public $incrementing=true;
