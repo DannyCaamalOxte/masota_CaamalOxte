@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('login');
 });
+Route::get('mascotas', function () {
+    return view('mascotas');
+});
 
 
 
@@ -32,3 +35,4 @@ Route::get('Desencriptar', function(){
 });
 
 Route::post('validar','AccesoController@validar');
+
