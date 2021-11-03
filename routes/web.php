@@ -17,6 +17,9 @@ Route::get('/', function () {
 Route::get('mascotas', function () {
     return view('mascotas');
 });
+Route::get('especies', function () {
+    return view('especies');
+});
 
 
 
@@ -35,4 +38,6 @@ Route::get('Desencriptar', function(){
 });
 
 Route::post('validar','AccesoController@validar');
+
+//Route::view('especies','especies');
 
