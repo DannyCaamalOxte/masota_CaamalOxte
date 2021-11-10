@@ -11,13 +11,14 @@
                             <thead>
                                <th>CLAVE</th>
                               <th>ESPECIE</th>
+                              <th>OPERACIONES</th>
                             </thead>
                             <tbody>
                                 <tr v-for="especie in especies">
                                     <td>@{{especie.id_especie}}</td>
                                     <td>@{{especie.especie}}</td>
                                     <td>
-                                        <button class="btn btn-primary">ELIMINAR</button>
+                                        <button class="btn btn-danger" @click="eliminarEspecie(especie.id_especie)">ELIMINAR</button>
                                         <button class="btn btn-danger">EDITAR</button>
                                     </td>
                                 </tr>

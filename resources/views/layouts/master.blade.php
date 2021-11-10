@@ -10,6 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <title>@yield('titulo')</title>
+  <meta name="token" id="token" value="{{ csrf_token() }}">
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="css/all.min.css">
@@ -269,11 +270,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!--@stack('scripts')
 
 <!-- jQuery -->
-<script src="js/jquery.min.js"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
-<script src="js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
-<script src="js/adminlte.min.js"></script>
+<script src="{{asset('js/adminlte.min.js')}}"></script>
+
+<script type="text/javascript" src="{{asset('js/sweetalert2.all.min.js')}}"></script>
 
 @stack('scripts')
 
