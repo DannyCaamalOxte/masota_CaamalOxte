@@ -57,12 +57,11 @@ new Vue({
 			)
 		}
 	});
-
-
-
-
-
 			
+		},
+		//fin del metodo eliminar
+		mostrarModal(){
+			$('#modalEspecies').modal('show');
 		}
 
 	},
