@@ -13,6 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="token" id="token" value="{{ csrf_token() }}">
 
   <!-- Font Awesome Icons -->
+  <script src="{{asset('js/vue.js')}}" type="text/javascript"></script>
   <link rel="stylesheet" href="css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="css/adminlte.min.css">

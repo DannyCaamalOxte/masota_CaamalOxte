@@ -36,6 +36,21 @@ class MascotaController extends Controller
     public function store(Request $request)
     {
         //
+          // $mascota=new Mascota();
+
+
+        // // $mascota->id_mascota=$request->get('id_mascota');
+        //$mascota->nombre=$request->get('nombre');
+       // $mascota->genero=$request->get('genero');
+        //$mascota->peso=$request->get('peso');
+
+    //$mascota->save();
+
+    //     return $request->get('nombre');
+
+        // $mascota=Mascota::create($request->all());
+       //
+
     }
 
     /**
