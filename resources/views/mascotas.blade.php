@@ -21,6 +21,7 @@
 							<!--inicio de la tabla-->
 				<table class="table table-bordered table-striped">
 					<thead>
+						<th hidden="">ID MASCOTA</th>
 						<th>NOMBRE</th>
 						<th>GENERO</th>
 						<th>PESO</th>
@@ -30,14 +31,15 @@
 					<tbody>
 						
 						<tr v-for="mascota in mascotas">
+							<td hidden="">@{{mascota.id_mascota}}</td>
 							<td>@{{mascota.nombre}}</td>
 							<td>@{{mascota.genero}}</td>
 							<td>@{{mascota.peso}}</td>
 							<td>
-								<button class="btn btn-sm">
+								<button class="btn btn-sm" @click="editandoMascota(mascota.id_mascota)">
 									<i class="fas fa-edit"></i>
 								</button>
-								<button class="btn btn-sm">
+								<button class="btn btn-sm" @click="eliminarMascota(mascota.id_mascota)">
 									<i class="fas fa-trash-alt"></i>
 								</button>
 							</td>
@@ -66,7 +68,8 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Registro de Mascota</h5>
+        <h5 class="modal-title" id="exampleModalLabel" v-if="agregando==true">Registro de Mascota</h5>
+        <h5 class="modal-title" id="exampleModalLabel" v-if="agregando==false">Editar Mascota</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -91,7 +94,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" @click="guardarMascota()">Guardar</button>
+        <button type="button" class="btn btn-primary" @click="guardarMascota" v-if="agregando==true">Guardar</button>
+        <button type="button" class="btn btn-warning" @click="actualizarMascota()" v-if="agregando==false">Guardar</button>
       </div>
     </div>
   </div>
