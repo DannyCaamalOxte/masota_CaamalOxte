@@ -43,6 +43,7 @@ class MascotaController extends Controller
         $mascota->nombre=$request->get('nombre');
        $mascota->genero=$request->get('genero');
         $mascota->peso=$request->get('peso');
+        $mascota->id_especie=$request->get('id_especie');
 
     $mascota->save();
 
@@ -89,6 +90,7 @@ class MascotaController extends Controller
         $mascota->nombre=$request->get('nombre');
         $mascota->genero=$request->get('genero');
         $mascota->peso=$request->get('peso');
+        $mascota->id_especie=$request->get('id_especie');
 
         $mascota->update();
 

@@ -20,9 +20,8 @@ class Mascota extends Model
     public $fillable=[
     	'id_mascota',
     	'nombre',
-    	'edad',
-    	'peso',
     	'genero',
+    	'peso',
     	'id_propietario',
         'id_especie',
         'id_raza'

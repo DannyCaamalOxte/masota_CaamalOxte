@@ -4,6 +4,21 @@
 	
 	<!--inicia vue-->
 	<div id="mascota">
+
+<!-- <div class="row">
+	<div class="col-md-8">
+		<input type="number" placeholder="cantidad" class="form-control" v-model="cantidad"><br>
+		<input type="number" placeholder="precio" class="form-control" v-model="precio"><br>
+		<h5>total:@{{total}}</h5>
+		
+	</div>
+</div> -->
+<div class="row">
+	<div class="col-md-8">
+		
+	</div>
+</div>
+
 		<div class="row">
 			<!--inicio de col-->
 			<div class="col-md-12">
@@ -15,6 +30,12 @@
 							<i class="fas fa-plus"></i>
 						</span>
 						</h3>
+
+						<div class="col-md-6">
+							<input type="text" placeholder="Buscar el nombre o la especie de la mascota" class="form-control" v-model="buscar" >
+						</div>
+
+
 					</div>
 				
 					<div class="card-body">
@@ -25,16 +46,19 @@
 						<th>NOMBRE</th>
 						<th>GENERO</th>
 						<th>PESO</th>
+						<th>ESPECIE</th>
 						<th>ACCIONES</th>
+
 					</thead>
 
 					<tbody>
 						
-						<tr v-for="mascota in mascotas">
+						<tr v-for="mascota in filtroMascotas">
 							<td hidden="">@{{mascota.id_mascota}}</td>
 							<td>@{{mascota.nombre}}</td>
 							<td>@{{mascota.genero}}</td>
 							<td>@{{mascota.peso}}</td>
+							<td>@{{mascota.especie.especie}}</td>
 							<td>
 								<button class="btn btn-sm" @click="editandoMascota(mascota.id_mascota)">
 									<i class="fas fa-edit"></i>
@@ -85,12 +109,13 @@
       		
       	</select><br>
 
-      	<input type="number" class="form-control" placeholder="Peso de mascota" v-model="peso">
+      	<input type="number" class="form-control" placeholder="Peso de mascota" v-model="peso"><br>
+
+      	<select class="form-control" v-model="id_especie">
+      		<option v-for="especie in especies" v-bind:value="especie.id_especie">@{{especie.especie}}</option>
+      	</select>
 
 
-
-
-        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

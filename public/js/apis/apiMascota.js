@@ -1,4 +1,5 @@
 var apiMascota='http://localhost/plantilla1/public/apiMascota';
+var apiEspecie='http://localhost/plantilla1/public/apiEspecie';
 new Vue({
 	
 	http: {
@@ -12,12 +13,18 @@ new Vue({
 	data:{
 		prueba:'esta es una prueba',
 		mascotas:[],
+		especies:[],
 
 		nombre:'',
 		genero:'',
 		peso:'',
 		agregando:true,
 		id_mascota:'',
+		id_especie:'',
+
+		cantidad:1,
+		precio:0,
+		buscar:'',
 
 
 
@@ -26,6 +33,7 @@ new Vue({
 	//al crearse la pagina
 	created:function(){
 		this.obtenerMascotas();
+		this.obtenerEspecies();
 	},
 
 		methods:{
@@ -39,17 +47,22 @@ new Vue({
 				});
 			},
 
+
 			mostrarModal:function(){
 				this.agregando=true;
 				this.nombre='';
 				this.genero='';
 				this.peso='';
+				this.id_especie='';
 				$('#modalMascota').modal('show');
 			},
 
 			guardarMascota:function(){
 				//construye el js para enviar al controlador
-				var mascota={nombre:this.nombre,genero:this.genero,peso:this.peso};
+				var mascota={nombre:this.nombre,
+					genero:this.genero,
+					peso:this.peso,
+					id_especie:this.id_especie};
 
 				// console.log(mascota);
 
@@ -59,6 +72,7 @@ new Vue({
 					this.nombre='';
 					this.genero='';
 					this.peso='';
+					this.id_especie='';
 				}).catch(function(j){
 					console.log(j);
 				});
@@ -94,16 +108,43 @@ new Vue({
 			actualizarMascota:function(){
 				var jsonMascota = {nombre:this.nombre,
 									genero:this.genero,
-									peso:this.peso};
+									peso:this.peso,
+									id_especie:this.id_especie};
 				//console.log(jsonMascota);
 				this.$http.patch(apiMascota + '/' + this.id_mascota,jsonMascota).then(function(json){
 					this.obtenerMascotas();
 				});
 				$('#modalMascota').modal('hide');
 				//alert('estamos modificando');
+			},
+
+			obtenerEspecies:function(){
+				this.$http.get(apiEspecie).then(function(json){
+					this.especies=json.data;
+				})
 			}
 
 
+
+		},
+		//fin de methods
+
+		//inicio de computed
+		computed:{
+			total:function(){
+				var t=0;
+				t= this.cantidad * this.precio;
+				return t;
+			},
+
+			filtroMascotas:function(){
+				return this.mascotas.filter((mascota)=>{
+					return mascota.nombre.toLowerCase().match(this.buscar.toLowerCase().trim()) ||
+							mascota.especie.especie.toLowerCase().match(this.buscar.toLowerCase().trim())
+				});
+			}
 		}
+		//fin de computed
+
  
 });
