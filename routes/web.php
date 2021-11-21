@@ -26,6 +26,7 @@ Route::get('propietarios', function () {
 
 
 
+
 Route::apiResource('apiMascota','MascotaController');
 Route::apiResource('apiEspecie','EspecieController');
 Route::apiResource('apiPropietario','PropietarioController');
@@ -42,5 +43,11 @@ Route::get('Desencriptar', function(){
 
 Route::post('validar','AccesoController@validar');
 
+
 //Route::view('especies','especies');
+//ruta parametrizada
+Route::get('getRazas/{id_especie}',[
+	'as'=>'getRazas',
+	'uses'=>'EspecieController@getRazas',
+]);
 

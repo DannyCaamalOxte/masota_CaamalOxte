@@ -1,6 +1,9 @@
 var apiMascota='http://localhost/plantilla1/public/apiMascota';
 var apiEspecie='http://localhost/plantilla1/public/apiEspecie';
+
+
 new Vue({
+	
 	
 	http: {
             headers: {
@@ -10,10 +13,13 @@ new Vue({
 
 	el:"#mascota",
 
+
+
 	data:{
 		prueba:'esta es una prueba',
 		mascotas:[],
 		especies:[],
+		razas:[],
 
 		nombre:'',
 		genero:'',
@@ -21,6 +27,7 @@ new Vue({
 		agregando:true,
 		id_mascota:'',
 		id_especie:'',
+		id_raza:'',
 
 		cantidad:1,
 		precio:0,
@@ -29,6 +36,7 @@ new Vue({
 
 
 	},
+
 
 	//al crearse la pagina
 	created:function(){
@@ -122,6 +130,16 @@ new Vue({
 				this.$http.get(apiEspecie).then(function(json){
 					this.especies=json.data;
 				})
+			},
+
+			obtenerRazas(e){
+					var id_especie=e.target.value;
+					//console.log(id_especie);
+
+					this.$http.get(apiMascota +'/getRazas/' + id_especie).then(function(j){
+						//console.log(j.data);
+						this.razas=j.data;
+					});
 			}
 
 

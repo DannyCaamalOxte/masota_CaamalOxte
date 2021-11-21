@@ -111,15 +111,22 @@
 
       	<input type="number" class="form-control" placeholder="Peso de mascota" v-model="peso"><br>
 
-      	<select class="form-control" v-model="id_especie">
+      	<select class="form-control" v-model="id_especie" @change="obtenerRazas">
+      		<!-- <option value="" disabled="">Seleccione la especie</option> -->
       		<option v-for="especie in especies" v-bind:value="especie.id_especie">@{{especie.especie}}</option>
+      	</select><br>
+
+      	<select class="form-control" v-model="id_raza">
+      		<option value="" disabled="">Seleccione la raza</option>
+      		<option v-for="raza in razas" v-bind:value="id_raza">@{{raza.raza}}</option>
+ 
       	</select>
 
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" @click="guardarMascota" v-if="agregando==true">Guardar</button>
+        <button type="button" class="btn btn-primary" @click="guardarMascota()" v-if="agregando==true">Guardar</button>
         <button type="button" class="btn btn-warning" @click="actualizarMascota()" v-if="agregando==false">Guardar</button>
       </div>
     </div>
