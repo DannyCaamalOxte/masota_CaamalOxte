@@ -23,6 +23,9 @@ Route::get('especies', function () {
 Route::get('propietarios', function () {
     return view('propietarios');
 });
+Route::get('ventas', function () {
+    return view('ventas');
+});
 
 
 
@@ -31,6 +34,7 @@ Route::apiResource('apiMascota','MascotaController');
 Route::apiResource('apiEspecie','EspecieController');
 Route::apiResource('apiPropietario','PropietarioController');
 Route::apiResource('apiRaza','RazaController');
+Route::apiResource('apiProducto','ProductoController');
 //Route::apiResource('apiEspecie','EspecieController');
 Route::get('prueba', function(){
     //return base64_encode('HOLA');
