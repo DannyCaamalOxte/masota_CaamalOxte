@@ -70,7 +70,7 @@
 									
 									<tr>
 										<th style="background: #ffff66">IVA</th>
-										<td>$ IVAL</td>
+										<td>$ @{{iva}}</td>
 
 									</tr>
 									<tr>
