@@ -53,8 +53,16 @@ new Vue({
 	//fin de methods
 
 	computed:{
+		totalProducto(){  
+			return(id)=>{
+				var total = 0;
+				total=this.ventas[id].precio * this.cantidades[id];
+				return total.toFixed(1);
+			}
+		},
 
-	},
+	}
+	// fin de computed
 })
 
 } window.onload = init;
