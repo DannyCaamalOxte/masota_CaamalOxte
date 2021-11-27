@@ -75,7 +75,7 @@
 									</tr>
 									<tr>
 										<th style="background: #ffff66">TOTAL</th>
-										<td>$ TOTAL</td>
+										<td><b>$ @{{granTotal}}</b></td>
 									</tr>
 
 								</table>
