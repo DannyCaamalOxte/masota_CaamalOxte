@@ -47,6 +47,11 @@ new Vue({
 				this.sku='';
 			});
 		}
+
+		},
+
+		eliminarProducto:function(id){
+			this.ventas.splice(id,1);
 		}
 		
 
